@@ -27,6 +27,7 @@ rungui: all
 	java -classpath $(CLASSPATH) $(ENTRYPOINT_GUI)
 
 lib: all
+	mkdir -p lib
 	jar cvfe $(LIBFILE) $(ENTRYPOINT) -C $(OUTPATH) jp
 
 bin: all

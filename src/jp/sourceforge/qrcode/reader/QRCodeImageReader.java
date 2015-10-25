@@ -35,7 +35,7 @@ public class QRCodeImageReader {
 		this.canvas = QRCodeDecoder.getCanvas();
 	}
 	// local class for module pitch
-	protected class ModulePitch
+	protected static class ModulePitch
 	{
 		public int top;
 		public int left;
@@ -89,13 +89,13 @@ public class QRCodeImageReader {
 		
 		return filteredMatrix;
 	}	
-	boolean[][] filterImage(int[][] image) {
+	public static boolean[][] filterImage(int[][] image) {
 		imageToGrayScale(image);
 		boolean[][] bitmap = grayScaleToBitmap(image);
 		return bitmap;
 	}
 	
-	void imageToGrayScale(int[][] image) {
+	public static void imageToGrayScale(int[][] image) {
 		for (int y = 0; y < image[0].length; y++) {
 			for (int x = 0; x < image.length; x++) {
 				int r = image[x][y] >> 16 & 0xFF;
@@ -107,7 +107,7 @@ public class QRCodeImageReader {
 		}
 	}
 	
-	boolean[][] grayScaleToBitmap(int[][] grayScale) {
+	public static boolean[][] grayScaleToBitmap(int[][] grayScale) {
 		int[][] middle = getMiddleBrightnessPerArea(grayScale);
 		int sqrtNumArea = middle.length;
 		int areaWidth = grayScale.length / sqrtNumArea;
@@ -126,7 +126,7 @@ public class QRCodeImageReader {
 		return bitmap;
 	}
 	
-	int[][] getMiddleBrightnessPerArea(int[][] image) {
+	public static int[][] getMiddleBrightnessPerArea(int[][] image) {
 		final int numSqrtArea = 4;
 		//obtain middle brightness((min + max) / 2) per area
 		int areaWidth = image.length / numSqrtArea;
@@ -253,7 +253,7 @@ public class QRCodeImageReader {
 	/**
 	 * Generic Sampling grid method
 	 */
-	SamplingGrid getSamplingGrid(FinderPattern finderPattern, AlignmentPattern alignmentPattern) {
+	public static SamplingGrid getSamplingGrid(FinderPattern finderPattern, AlignmentPattern alignmentPattern) {
 
 		Point centers[][] = alignmentPattern.getCenter();
 
@@ -467,7 +467,7 @@ public class QRCodeImageReader {
 
 	
 	//get module pitch in single area
-	int getAreaModulePitch(Point start, Point end, int logicalDistance) {
+	public static int getAreaModulePitch(Point start, Point end, int logicalDistance) {
 		Line tempLine;
 		tempLine = new Line(start, end);
 		int realDistance = tempLine.getLength();

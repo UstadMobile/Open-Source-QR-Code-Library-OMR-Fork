@@ -44,6 +44,7 @@ public class FinderPattern {
 		} catch (FinderPatternNotFoundException e) {
 			throw e;
 		}
+                
 		int[] sincos = getAngle(center);
 		center = sort(center, sincos);
 		int[] width = getWidth(image, center, sincos);
@@ -63,6 +64,19 @@ public class FinderPattern {
 		}
 		return new FinderPattern (center, version, sincos, width, moduleSize);
 	}
+        
+        public static Point[] findCenters(boolean[][] image) {
+            Line[] lineAcross = findLineAcross(image);
+            Line[] lineCross = findLineCross(lineAcross);
+            Point[] center = null;
+            try {
+                    center = getCenter(lineCross);
+            } catch (FinderPatternNotFoundException e) {
+                    //throw e;
+            }
+
+            return center;
+        }
 	
 	FinderPattern (Point[] center, int version, int[] sincos, int[] width, int[] moduleSize) {
 		this.center = center;
@@ -372,7 +386,7 @@ public class FinderPattern {
 		}
 		//System.out.println(foundPoints.length);
 		
-		if (foundPoints.length == 3) {
+		if (foundPoints.length == 3 || foundPoints.length == 4) {
 			canvas.drawPolygon(foundPoints, Color.RED);	
 			return foundPoints;
 		}

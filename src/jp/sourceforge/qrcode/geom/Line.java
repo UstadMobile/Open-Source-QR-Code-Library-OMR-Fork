@@ -120,4 +120,33 @@ public class Line{
 	public String toString() {
     return "(" + x1 + "," + y1 + ")-(" + x2 + "," + y2 + ")";
 	}
+        
+        public int getDeltaX() {
+            return x2 - x1;
+        }
+        
+        public int getDeltaY() {
+            return y2 - y1;
+        }
+        
+        public Point getMidpoint(float f){
+            return new Point(Math.round(x1 + getDeltaX()* f),
+                Math.round(y1 + getDeltaY()* f));
+        }
+        
+        public Point getIntersect(Line line) {
+            int dx = getDeltaX();
+            int dy = getDeltaY();
+            double m1 = (double)getDeltaY() / (double)getDeltaX();
+            double c1 = y1 - (m1*x1);
+            
+            double m2 = (double)line.getDeltaY() / (double)line.getDeltaX();
+            double c2 = line.y1 - (m2 * line.x1);
+            
+            double x = (c2 - c1)/(m1 -m2);
+            double y = m1 * x + c1;
+            
+            return new Point((int)Math.round(x), (int)Math.round(y));
+        }
+        
 }

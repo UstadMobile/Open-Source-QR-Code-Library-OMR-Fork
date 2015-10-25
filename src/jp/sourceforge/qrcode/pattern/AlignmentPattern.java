@@ -95,7 +95,9 @@ public class AlignmentPattern {
 				else {
 					Point t1 = axis.translate(centers[x - 1][y], logicalCenters[x][y].getX() - logicalCenters[x - 1][y].getX(), 0);
 					Point t2 = axis.translate(centers[x][y - 1], 0, logicalCenters[x][y].getY() - logicalCenters[x][y - 1].getY());
-					centers[x][y] = new Point((t1.getX() + t2.getX()) / 2, (t1.getY() + t2.getY()) / 2 + 1);
+                                        //UM : when using a rectangle - t2 seems to be very wrong...
+                                        //centers[x][y] = new Point((t1.getX() + t2.getX()) / 2, (t1.getY() + t2.getY()) / 2 + 1);
+                                        centers[x][y]= t1;
 				}
 				if (finderPattern.getVersion() > 1) {
 					Point precisionCenter = getPrecisionCenter(image, centers[x][y]);

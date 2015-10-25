@@ -11,6 +11,7 @@ ENTRYPOINT=example.QRCodeDecoderCUIExample
 ENTRYPOINT_GUI=example.QRCodeDecoderGUIExample
 
 all: $(SRC)
+	mkdir -p $(CLASSPATH)
 	javac -d $(OUTPATH) -sourcepath $(SOURCEPATH) $<
 
 test:

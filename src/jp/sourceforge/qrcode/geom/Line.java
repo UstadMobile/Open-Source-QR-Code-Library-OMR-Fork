@@ -129,9 +129,19 @@ public class Line{
             return y2 - y1;
         }
         
+        public static int round(float f) {
+            float remainder = f - (float)Math.floor(f);
+            if(remainder > 0.5) {
+                return (int)Math.ceil(f);
+            }else {
+                return (int)Math.floor(f);
+            }
+        }
+        
         public Point getMidpoint(float f){
-            return new Point(Math.round(x1 + getDeltaX()* f),
-                Math.round(y1 + getDeltaY()* f));
+            
+            return new Point(round(x1 + getDeltaX()* f),
+                round(y1 + getDeltaY()* f));
         }
         
         public Point getIntersect(Line line) {
@@ -146,7 +156,7 @@ public class Line{
             double x = (c2 - c1)/(m1 -m2);
             double y = m1 * x + c1;
             
-            return new Point((int)Math.round(x), (int)Math.round(y));
+            return new Point((int)round((float)x), (int)round((float)y));
         }
         
 }

@@ -1,6 +1,5 @@
 package jp.sourceforge.reedsolomon;
 
-import java.util.Arrays;
 
 /**
  * タイトル: GF(2^8)
@@ -139,7 +138,9 @@ public final class Galois {
 	 * @param b int[]
 	 */
 	public void mulPoly(int[] seki, int[] a, int[] b) {
-		Arrays.fill(seki, 0);
+                for(int i = 0; i < seki.length; i++) {
+                    seki[i] = 0;
+                }
 		for(int ia = 0; ia < a.length; ia++) {
 			if(a[ia] != 0) {
 				int loga = logTbl[a[ia]];

@@ -171,17 +171,22 @@ public class QRCodeDecoder {
         }
     }
 
-    public static int[][] imageToIntArray(QRCodeImage image) {
-        int width = image.getWidth();
-        int height = image.getHeight();
+    public static int[][] imageToIntArray(QRCodeImage image, int startx, int starty, int width, int height) {
         int[][] intImage = new int[width][height];
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
+        int endx = startx + width;
+        int endy = starty + height;
+        for (int y = starty; y < endy; y++) {
+            for (int x = startx; x < endx; x++) {
                 intImage[x][y] = image.getPixel(x, y);
             }
         }
         return intImage;
     }
+    
+    public static int[][] imageToIntArray(QRCodeImage image) {
+        return imageToIntArray(image, 0, 0, image.getWidth(), image.getHeight());
+    }
+    
 
     int[] correctDataBlocks(int[] blocks) {
         int numSucceededCorrections = 0;

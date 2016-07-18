@@ -213,7 +213,8 @@ public class FinderPattern {
 		for (int i = 0; i < foundLines.length; i++)
 			foundLines[i] = (Line) lineAcross.elementAt(i);
 		
-		canvas.drawLines(foundLines,Color.LIGHTGREEN);
+		if(canvas != null) 
+                    canvas.drawLines(foundLines,Color.LIGHTGREEN);
 		return foundLines;
 	}
 	
@@ -386,9 +387,11 @@ public class FinderPattern {
 		}
 		//System.out.println(foundPoints.length);
 		
-		if (foundPoints.length == 3 || foundPoints.length == 4) {
-			canvas.drawPolygon(foundPoints, Color.RED);	
-			return foundPoints;
+		if (foundPoints.length > 0) {
+                    if(canvas != null) {
+                        canvas.drawPolygon(foundPoints, Color.RED);
+                    }	
+                    return foundPoints;
 		}
 		else
 			throw new FinderPatternNotFoundException("Invalid number of Finder Pattern detected");

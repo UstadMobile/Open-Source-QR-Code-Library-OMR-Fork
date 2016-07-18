@@ -12,7 +12,7 @@ ENTRYPOINT_GUI=example.QRCodeDecoderGUIExample
 
 all: $(SRC)
 	mkdir -p $(CLASSPATH)
-	javac -d $(OUTPATH) -sourcepath $(SOURCEPATH) $<
+	javac -d $(OUTPATH) -source 1.7 -target 1.7 -sourcepath $(SOURCEPATH) $<
 
 test:
 	./test_decoder.sh

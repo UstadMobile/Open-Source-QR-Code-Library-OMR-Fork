@@ -15,5 +15,6 @@ public interface DebugCanvas {
 	public  void drawLines(Line[] lines, int color);
 	public  void drawPolygon(Point[] points, int color);
 	public  void drawMatrix(boolean[][] matrix);
+        public  void drawCircle(Point center, int radius, int color);
 }
 

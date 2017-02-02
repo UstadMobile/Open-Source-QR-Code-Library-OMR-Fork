@@ -7,7 +7,11 @@ subprojects {
 }
 
 //Local settings
-apply from: "localsettings.gradle"
+if(file("localsettings.gradle").exists()) {
+    apply from: "localsettings.gradle"
+}else {
+    apply from: "localsettings.default.gradle"
+}
 
 task mergedJavadoc(type: Javadoc, description: 'Creates Javadoc from all the projects.') {
     title = 'All modules'

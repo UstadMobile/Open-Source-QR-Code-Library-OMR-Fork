@@ -1,0 +1,4 @@
+ext {
+    repoDir = '/home/mike/tmp/qrmvn'
+}
+

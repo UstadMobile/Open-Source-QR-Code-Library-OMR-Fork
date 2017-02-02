@@ -1,5 +1,5 @@
 #!/bin/sh
-RESPATH=res
+RESPATH=/home/mike/Desktop/res
 CLASSPATH=classes
 ENTRYPOINT=example.QRCodeDecoderCUIExample
 FILENAMES=""

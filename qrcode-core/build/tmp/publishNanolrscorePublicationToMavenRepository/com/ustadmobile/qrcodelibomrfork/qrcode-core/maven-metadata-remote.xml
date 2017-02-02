@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.ustadmobile.qrcodelibomrfork</groupId>
+  <artifactId>qrcode-core</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20170202113145</lastUpdated>
+  </versioning>
+</metadata>

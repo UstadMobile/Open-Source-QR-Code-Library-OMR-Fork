@@ -6,7 +6,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
 
 String mavenGroupId = 'com.ustadmobile.qrcodelibomrfork'
-String mavenVersion = '1.0-SNAPSHOT'
+String mavenVersion = '1.0.3'
 
 sourceCompatibility = '1.7'
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'

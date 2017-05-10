@@ -34,7 +34,7 @@ publishing {
         nanolrscore(MavenPublication) {
             groupId group
             artifactId 'qrcode-core'
-            version mavenVersion
+            version version
 
             from components.java
 
